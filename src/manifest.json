@@ -4,15 +4,15 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "my-command",
-      "identifier": "my-command-identifier",
-      "script": "./my-command.js"
+      "name": "Export icons",
+      "identifier": "icons-export",
+      "script": "./commands/export.js"
     }
   ],
   "menu": {
-    "title": "icons-plugin",
+    "title": "Icons",
     "items": [
-      "my-command-identifier"
+      "icons-export"
     ]
   }
 }

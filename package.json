@@ -21,5 +21,8 @@
   "devDependencies": {
     "@skpm/builder": "^0.5.2"
   },
-  "author": "Evan <evan@batch.com>"
+  "author": "Evan <evan@batch.com>",
+  "dependencies": {
+    "svgo": "^1.0.5"
+  }
 }
