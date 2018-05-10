@@ -1,4 +1,4 @@
-import Icon from '../utils/icon.js'
+import Icon from '../scripts/icon.js'
 
 import UI from 'sketch/ui'
 
