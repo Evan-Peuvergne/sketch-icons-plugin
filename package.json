@@ -23,6 +23,7 @@
   },
   "author": "Evan <evan@batch.com>",
   "dependencies": {
+    "@skpm/fs": "^0.1.2",
     "svgo": "^1.0.5"
   }
 }

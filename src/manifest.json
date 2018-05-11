@@ -7,7 +7,7 @@
       "name": "Export icons",
       "identifier": "icons-export",
       "script": "./commands/export.js"
-    }
+    },
   ],
   "menu": {
     "title": "Icons",

@@ -1,7 +1,8 @@
 
+import Sketch from 'sketch/dom'
 import UI from 'sketch/ui'
-import { Style } from 'sketch/dom'
 
+import fs from '@skpm/fs'
 import SVGo from 'svgo'
 
 import Utils from './utils.js'
@@ -12,6 +13,8 @@ class Icon {
   constructor(item = null) {
 
     this.isValidIcon = true
+
+    this.name = null
 
     this.item = null
     this.guide = null, this.model = null
@@ -44,12 +47,28 @@ class Icon {
 
   export() {
 
-    // Config
-    let compressor = new SVGo({
-      full: true,
-      js2svg: { pretty: true, indent: 2 },
-      plugins: []
+    // Export
+    Sketch.export(this.item, {
+      formats: 'svg',
+      output: '~/Documents/Resources/TimeflyIcons',
+      overwriting: true,
+      compact: true
     })
+
+    // File
+    let url = '~/Documents/Resources/TimeflyIcons/' + this.name.split(' / ').join('/') + '.svg'
+    let promises = [url]
+
+    let svgString = fs.readFileSync(url)
+    console.log(svgString)
+
+    // SVGo
+    // let compressor = new SVGo({
+      // full: true,
+      // js2svg: { pretty: true, indent: 2 },
+      // plugins: []
+    // })
+
 
   }
 
@@ -61,6 +80,7 @@ class Icon {
   _init(item) {
 
     this.item = item
+    this.name = this.item.name()
     if (this.item.class() != 'MSSymbolMaster') { this.isValidIcon = false }
 
     this.item.layers().forEach((layer) => {
