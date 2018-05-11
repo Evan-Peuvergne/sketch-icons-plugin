@@ -1,0 +1,79 @@
+[
+  {
+    "cleanupIDs": true
+  },
+  {
+    "cleanupListOfValues": true
+  },
+  {
+    "cleanupNumericValues": true
+  },
+  {
+    "collapseGroups": true
+  },
+  {
+    "convertColors": true
+  },
+  {
+    "convertStyleToAttrs": true
+  },
+  {
+    "convertTransform": true
+  },
+  {
+    "mergePaths": true
+  },
+  {
+    "minifyStyles": true
+  },
+  {
+    "removeComments": true
+  },
+  {
+    "removeDesc": {
+      "removeAny": true
+    }
+  },
+  {
+    "removeDoctype": true
+  },
+  {
+    "removeEditorsNSData": true
+  },
+  {
+    "removeEmptyAttrs": true
+  },
+  {
+    "removeEmptyContainers": true
+  },
+  {
+    "removeEmptyText": true
+  },
+  {
+    "removeMetadata": true
+  },
+  {
+    "removeNonInheritableGroupAttrs": true
+  },
+  {
+    "removeTitle": true
+  },
+  {
+    "removeUnknownsAndDefaults": true
+  },
+  {
+    "removeUnusedNS": true
+  },
+  {
+    "removeUselessDefs": true
+  },
+  {
+    "removeUselessStrokeAndFill": true
+  },
+  {
+    "removeXMLProcInst": true
+  },
+  {
+    "sortAttrs": true
+  }
+]

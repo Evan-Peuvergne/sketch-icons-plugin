@@ -6,6 +6,7 @@ import fs from '@skpm/fs'
 import SVGo from 'svgo'
 
 import Utils from './utils.js'
+import Plugins from '../config/plugins.json'
 
 
 class Icon {
@@ -29,6 +30,9 @@ class Icon {
 
   clean() {
 
+    // Name
+    this.item.setName(this.item.name().split(' / ').join('/'))
+
     // Hiddens
     this.guide.setIsVisible(false)
     this.model.setIsVisible(false)
@@ -45,6 +49,16 @@ class Icon {
 
   }
 
+  reset() {
+
+    // Hiddens
+    this.color.setIsVisible(true)
+
+    // Mask
+    this.mask.setHasClippingMask(true)
+
+  }
+
   export() {
 
     // Export
@@ -56,23 +70,24 @@ class Icon {
     })
 
     // File
-    let url = '~/Documents/Resources/TimeflyIcons/' + this.name.split(' / ').join('/') + '.svg'
-    let promises = [url]
-
-    let svgString = fs.readFileSync(url)
-    console.log(svgString)
+    let url = '/Users/evanpeuvergne/Documents/Resources/TimeflyIcons/' + this.name.split(' / ').join('/') + '.svg'
+    let svgString = fs.readFileSync(url, 'utf8')
 
     // SVGo
-    // let compressor = new SVGo({
-      // full: true,
-      // js2svg: { pretty: true, indent: 2 },
-      // plugins: []
-    // })
+    let compressor = new SVGo({
+      full: true,
+      js2svg: { pretty: true, indent: 2 },
+      plugins: Plugins
+    })
 
-
-  }
-
-  reset() {
+    compressor.optimize(svgString)
+      .then(result => {
+        fs.writeFileSync(url, result.data, 'utf8')
+      })
+      .catch(error => {
+        log('error')
+        log(error)
+      })
 
   }
 

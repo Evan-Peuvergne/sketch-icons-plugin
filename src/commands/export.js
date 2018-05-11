@@ -14,20 +14,20 @@ export default function (context) {
   }
 
   // Icons
-  let icon = new Icon(selection[0])
+  selection.forEach(s => {
+    let icon = new Icon(s)
 
-  // Format
-  if (!icon.isValidIcon) {
-    UI.message('Some icons seems to don\'t have a valid format')
-    return false
-  }
+    if (!icon.isValidIcon) {
+      UI.message('Some icons seems to don\'t have a valid format')
+      return false
+    }
 
-  // Export
-  icon.clean()
-  icon.export()
-  icon.reset()
+    icon.clean()
+    icon.export()
+    icon.reset()
+  })
 
   // Feedback
-  UI.message('Your icon has been successfully exported')
+  UI.message('Your icons has been successfully exported')
 
 }
